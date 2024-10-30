@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diwali Wishes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://t4.ftcdn.net/jpg/09/80/57/35/360_F_980573519_odpykS19JjZJaXDXRAzOVBBXAmfIOsIx.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            background-color: rgba(96, 49, 192, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            display: inline-block;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f4c631;
+            color: #6031c0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #432286;
+            color: white;
+        }
+        .wishes {
+            margin-top: 20px;
+            font-size: 48px;
+            font-family: 'Lobster', cursive;
+            background: linear-gradient(90deg, #FF5733, #FFC300, #FF33F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            animation: rainbow 3s infinite;
+        }
+        @keyframes rainbow {
+            0% { background-position: 0%; }
+            100% { background-position: 100%; }
+        }
+        .diya-container {
+            position: relative;
+            height: 25em;
+            width: 25em;
+            margin: 0 auto;
+            animation: diya 3s forwards;
+            margin-top: 30px;
+        }
+        @keyframes diya {
+            100% { top: calc(50% + 1.1em); }
+        }
+        .diya {
+            height: 9.37em;
+            width: 18.75em;
+            background-color: #e53760;
+            border-radius: 0 0 9.37em 9.37em;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            box-shadow: 0 0 2.18em rgba(14, 2, 40, 0.4);
+        }
+        .inside {
+            width: 18.75em;
+            height: 3.75em;
+            background-color: #79182f;
+            border-radius: 50%;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            bottom: 7.5em;
+        }
+        .flame {
+            height: 10.62em;
+            width: 10.62em;
+            background-color: #fdf1c2;
+            border-radius: 10em 0;
+            transform: rotate(-45deg);
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            bottom: 2.25em;
+            animation: scale-up 2s infinite;
+        }
+        @keyframes scale-up {
+            50% {
+                transform: rotate(-45deg) scale(1.05);
+                bottom: 2.62em;
+            }
+        }
+        .flame:after {
+            content: "";
+            position: absolute;
+            height: 7.5em;
+            width: 7.5em;
+            background-color: #f4c631;
+            border-radius: 7.5em 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login to Send Your Wishes</h1>
+        <p>Fill your name to receive wishes.</p>
+        <input type="text" id="username" placeholder="Enter your name" />
+        <button onclick="sendWishes()">Submit</button>
+        
+        <div id="wishMessage" class="wishes" style="display:none;"></div>
+
+        <div class="diya-container">
+            <div class="diya">
+                <div class="inside"></div>
+                <div class="flame"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sendWishes() {
+            const username = document.getElementById('username').value.trim();
+            if (username) {
+                const wishMessage = `Happy Diwali ${username}, Happy Diwali to your family! From Chinmay`;
+                document.getElementById('wishMessage').innerText = wishMessage;
+                document.getElementById('wishMessage').style.display = 'block';
+                
+                // Simulate a notification
+                alert(`Notification: ${username} has submitted their name!`);
+                
+                document.getElementById('username').value = ''; // Clear input
+            } else {
+                alert('Name fill kr BKL!');
+            }
+        }
+    </script>
+</body>
+</html>
